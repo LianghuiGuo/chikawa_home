@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chikawa的小家</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 背景容器 -->
+    <div class="background-container">
+        <!-- 流星层 -->
+        <div class="stars" id="star-container"></div>
+        
+        <!-- 顶部标题 -->
+        <header class="top-title">
+            欢迎来到chikawa小家，点击三小只开始对话
+        </header>
+
+        <!-- 角色点击热区 (Invisible Click Zones) -->
+        <!-- 根据背景图布局，我们需要用绝对定位覆盖在角色位置 -->
+        <div class="character-zone zone-jiyi" onclick="openDialog('jiyi')"></div>
+        <div class="character-zone zone-wusaqi" onclick="openDialog('wusaqi')"></div>
+        <div class="character-zone zone-xiaoba" onclick="openDialog('xiaoba')"></div>
+    </div>
+
+    <!-- 对话框模态层 (默认隐藏) -->
+    <div id="dialog-overlay" class="dialog-overlay hidden">
+        <div class="dialog-box">
+            <div class="dialog-content">
+                <!-- 左侧图片 -->
+                <div class="avatar-section">
+                    <img id="dialog-img" src="" alt="角色头像">
+                </div>
+                <!-- 右侧文字区域 -->
+                <div class="text-section">
+                    <p id="dialog-text"></p> <!-- 文字流式打印在这里 -->
+                </div>
+            </div>
+            
+            <!-- 按钮区域 -->
+            <div class="button-group">
+                <button id="btn-next" onclick="nextPage()">下一页</button>
+                <button id="btn-close" onclick="closeDialog()">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
